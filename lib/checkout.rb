@@ -38,8 +38,6 @@ class Checkout
   end
 
   def calculate_discount_for(product)
-    return 0 if product.discount_rule.nil?
-
     product_count = @product_count[product.code]
     product.discount_rule.calculate_for(product.price, product_count)
   end
