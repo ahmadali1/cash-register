@@ -60,9 +60,109 @@ TDD approach is followed to build the following entities:
    - RatioDiscount: Reduces price by a percentage per unit  
    - BundleDiscount: Provides free units when minimum quantity is met (buy-X-get-Y)
 
+## CLI Driver
+
+The application includes an interactive CLI driver that provides the best UX for setting up products and scanning items.
+
+### Running the CLI
+
+```bash
+# Option 1: Using the executable script
+./bin/cash_register
+
+# Option 2: Direct Ruby execution
+ruby lib/drivers/main.rb
+```
+
+### CLI Features
+
+#### **1. Product Setup Phase**
+- Interactive product creation with codes, names, and prices
+- Support for all discount types:
+  - **Flat Discount**: Fixed amount off per unit
+  - **Ratio Discount**: Percentage off per unit
+  - **Bundle Discount**: Buy X get Y free
+  - **No Discount**: Regular pricing
+
+#### **2. Scanning Phase**
+- **Individual Scanning**: `scan <code>` - Add one product
+- **Batch Scanning**: `batch <codes>` - Add multiple products at once
+- **Cart Management**: View cart contents, clear cart
+- **Total Calculation**: See original price, discount applied, and final total
+
+#### **3. Available Commands**
+```
+scan <code>     : Add product to cart
+batch <codes>   : Scan multiple products (space-separated)
+total           : Calculate and display total
+cart            : Show current cart contents
+products        : Show all available products
+clear           : Clear cart
+help            : Show help
+quit/exit       : Exit the application
+```
+
+### Example Usage
+
+```
+==================================================
+🎯 CASH REGISTER SYSTEM
+==================================================
+Welcome! Let's set up your products and start scanning.
+
+📦 PRODUCT SETUP PHASE
+------------------------------
+Enter product details (or 'done' to finish):
+
+Product Code (e.g., GR1): GR1
+Product Name (e.g., Green Tea): Green Tea
+Price (e.g., 3.11): 3.11
+
+Select discount type:
+1. No discount
+2. Flat discount (fixed amount off per unit)
+3. Ratio discount (percentage off per unit)
+4. Bundle discount (buy X get Y free)
+Choice (1-4): 4
+Buy how many units: 1
+Get how many free: 1
+✅ Product 'Green Tea' added successfully!
+
+Product Code (e.g., GR1): done
+
+📋 PRODUCTS SUMMARY
+------------------------------
+GR1: Green Tea (€3.11) - Buy 1 get 1 free
+
+🛒 SCANNING PHASE
+------------------------------
+📖 AVAILABLE COMMANDS:
+scan <code>     : Add product to cart
+batch <codes>   : Scan multiple products (space-separated)
+total           : Calculate and display total
+cart            : Show current cart contents
+products        : Show all available products
+clear           : Clear cart
+help            : Show this help
+quit/exit       : Exit the application
+
+> scan GR1
+✅ Added: Green Tea (€3.11)
+
+> scan GR1
+✅ Added: Green Tea (€3.11)
+
+> total
+💰 TOTAL CALCULATION:
+-------------------------
+Original total: €6.22
+Discount applied: €3.11
+Final total: €3.11
+```
+
 #### Improvements:
 - [ ] **Test Coverage:** Test coverage needs to be improved
 - [ ] **TODOs:** TODOs comments on the code needs to be done (validations to be held in place + Edge Cases)
 - [ ] **Reset:** [Nice to Have] Cart reset functionality should be there
-- [ ] **Driver:** Ruby driver class needs to be implemented to make it a CLI application that will ask products data and discount rules and then ask which items to be scanned
+- [x] **Driver:** Ruby driver class has been implemented with best UX design
 

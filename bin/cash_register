@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+# Add the lib directory to the load path
+$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
+
+# Run the cash register CLI
+require 'drivers/main' 
