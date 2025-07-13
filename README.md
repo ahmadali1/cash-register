@@ -55,11 +55,14 @@ TDD approach is followed to build the following entities:
 
 1) Checkout: It contains scan and total methods. Scan method add products to the cart. Total method computes the total pricing of the products that are stored in the cart.
 2) Product: It containts code, price, name and discount rules. Each product can have different discount rule. 
-3) Discount: It contains different price discount rules. Currently flat discount, ratio discount and buy-few-get-few are supported.
+3) Discount: Abstract base class that defines the discount calculation interface. Child classes implement specific discount strategies:
+   - FlatDiscount: Reduces price by a fixed amount per unit
+   - RatioDiscount: Reduces price by a percentage per unit  
+   - BundleDiscount: Provides free units when minimum quantity is met (buy-X-get-Y)
 
 #### Improvements:
 - [ ] **Test Coverage:** Test coverage needs to be improved
-- [ ] **TODOs:** TODOs comments on the code needs to be done (validations to be held in place + code goes to relevant component + Edge Cases)
-- [ ] **Reset:** Cart reset functionality should be there
+- [ ] **TODOs:** TODOs comments on the code needs to be done (validations to be held in place + Edge Cases)
+- [ ] **Reset:** [Nice to Have] Cart reset functionality should be there
 - [ ] **Driver:** Ruby driver class needs to be implemented to make it a CLI application that will ask products data and discount rules and then ask which items to be scanned
 
