@@ -1,6 +1,8 @@
 require 'checkout'
 require 'product'
-require 'discount'
+require 'discount/flat_discount'
+require 'discount/ratio_discount'
+require 'discount/bundle_discount'
 
 RSpec.describe Checkout do
   let(:checkout) { subject }
@@ -35,22 +37,19 @@ RSpec.describe Checkout do
   describe '#total' do
     # Discount Rules to attach with products
     let(:buy_one_get_one_discount) do
-      Discount.new(
-        type: Discount::BUY_FEW_GET_FEW,
+      BundleDiscount.new(
         required_minimum_units: 1,
         free_units: 1
       )
     end
     let(:flat_discount) do
-      Discount.new(
-        type: Discount::FLAT_DISCOUNT,
+      FlatDiscount.new(
         required_minimum_units: 3,
         discounted_amount: 4.50
       )
     end
     let(:ratio_discount) do
-      Discount.new(
-        type: Discount::RATIO_DISCOUNT,
+      RatioDiscount.new(
         required_minimum_units: 3,
         discount_ratio: 0.6666
       )

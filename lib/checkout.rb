@@ -38,10 +38,10 @@ class Checkout
   end
 
   def calculate_discount_for(product)
-    case product.discount_rule&.type
-    when Discount::FLAT_DISCOUNT then flat_discount(product)
-    when Discount::RATIO_DISCOUNT then ratio_discount(product)
-    when Discount::BUY_FEW_GET_FEW then buy_few_get_few_discount(product)
+    case product.discount_rule
+    when FlatDiscount   then flat_discount(product)
+    when RatioDiscount  then ratio_discount(product)
+    when BundleDiscount then buy_few_get_few_discount(product)
     else 0
     end
   end
