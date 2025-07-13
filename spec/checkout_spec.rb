@@ -4,6 +4,9 @@ require 'discount/flat_discount'
 require 'discount/ratio_discount'
 require 'discount/bundle_discount'
 
+# Following files contains real implementation of the classes instead of mocks
+# So, we can test the real implementation. So, there are more of a integration tests here.
+
 RSpec.describe Checkout do
   let(:checkout) { subject }
 
