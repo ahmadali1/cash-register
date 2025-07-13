@@ -20,8 +20,8 @@ graph TB
     
     %% Data Structures
     subgraph "Checkout Data"
-        Cart[Cart Array<br/>List of Product objects]
-        ProductCount[Product Count Hash<br/>code => count]
+        Cart["Cart Array<br/>List of Product objects"]
+        ProductCount["Product Count Hash<br/>code => count"]
     end
     
     %% Inheritance
@@ -79,18 +79,18 @@ flowchart TD
 ```mermaid
 graph LR
     subgraph "Ratio Discount"
-        RD1[Product Price: $10<br/>Count: 3<br/>Ratio: 0.2<br/>Min Units: 2]
-        RD2[Per Unit Discount<br/>$10 - ($10 * 0.2) = $8<br/>Total Discount: $6]
+        RD1["Product Price: $10<br/>Count: 3<br/>Ratio: 0.2<br/>Min Units: 2"]
+        RD2["Per Unit Discount<br/>$10 - ($10 * 0.2) = $8<br/>Total Discount: $6"]
     end
     
     subgraph "Flat Discount"
-        FD1[Product Price: $10<br/>Count: 3<br/>Discounted Amount: $7<br/>Min Units: 2]
-        FD2[Per Unit Discount<br/>$10 - $7 = $3<br/>Total Discount: $9]
+        FD1["Product Price: $10<br/>Count: 3<br/>Discounted Amount: $7<br/>Min Units: 2"]
+        FD2["Per Unit Discount<br/>$10 - $7 = $3<br/>Total Discount: $9"]
     end
     
     subgraph "Bundle Discount"
-        BD1[Product Price: $10<br/>Count: 5<br/>Buy 2 Get 1 Free<br/>Min Units: 2]
-        BD2[Items per deal: 3<br/>Complete deals: 1<br/>Free items: 1<br/>Total Discount: $10]
+        BD1["Product Price: $10<br/>Count: 5<br/>Buy 2 Get 1 Free<br/>Min Units: 2"]
+        BD2["Items per deal: 3<br/>Complete deals: 1<br/>Free items: 1<br/>Total Discount: $10"]
     end
 ```
 
@@ -105,8 +105,8 @@ graph TD
     end
     
     subgraph "Checkout State"
-        CartState[Cart: [Product A, Product B, Product A]]
-        CountState[Product Count:<br/>A => 2<br/>B => 1]
+        CartState["Cart: [Product A, Product B, Product A]"]
+        CountState["Product Count:<br/>A => 2<br/>B => 1"]
     end
     
     subgraph "Calculation"
